@@ -6,5 +6,10 @@ import "@fontsource/plus-jakarta-sans/400.css";
 import "@fontsource/plus-jakarta-sans/500.css";
 import "@fontsource/plus-jakarta-sans/600.css";
 import "@fontsource/plus-jakarta-sans/700.css";
+import lazyBg from './directives/lazyBg'
 
-createApp(App).mount("#app");
+const app = createApp(App)
+
+app.directive('lazy-bg', lazyBg)
+
+app.mount('#app')
