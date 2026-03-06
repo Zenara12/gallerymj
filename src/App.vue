@@ -208,7 +208,7 @@ const trips = [
               <div class="aspect-[4/5] overflow-hidden rounded-xl bg-slate-100 shadow-lg transition-transform duration-500 group-hover:scale-[1.02] dark:bg-slate-800">
                 <div
                   class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  :style="{ backgroundImage: `url(${memory.image})` }"
+                  v-lazy-bg="memory.image"
                 ></div>
               </div>
               <div class="px-2">
@@ -236,7 +236,7 @@ const trips = [
               <div class="mb-4 aspect-video w-full overflow-hidden rounded-xl shadow-md">
                 <div
                   class="h-full w-full bg-cover bg-center transition-transform duration-500 hover:scale-110"
-                  :style="{ backgroundImage: `url(${trip.image})` }"
+                  v-lazy-bg="trip.image"
                 ></div>
               </div>
               <h5 class="text-lg font-bold">{{ trip.title }}</h5>
