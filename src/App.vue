@@ -135,31 +135,7 @@ const trips = [
     title: "Weekend Stroll",
     location: "Ayala Circuit - Jan 2026",
     image: `${fileNames[16]}`,
-  },
-  {
-    title: "Island Paradise",
-    location: "Bali, Indonesia - 2023",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
-  },
-  {
-    title: "Island Paradise",
-    location: "Bali, Indonesia - 2023",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
-  },
-  {
-    title: "Island Paradise",
-    location: "Bali, Indonesia - 2023",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
-  },
-  {
-    title: "Island Paradise",
-    location: "Bali, Indonesia - 2023",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
-  },
+  }
 ];
 </script>
 
