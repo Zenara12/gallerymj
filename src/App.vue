@@ -1,74 +1,140 @@
 <script setup>
-const navLinks = ["Our Story", "Gallery", "Timeline"];
+import { ref,reactive } from 'vue';
+const images = import.meta.glob('@/assets/images/*.webp', {
+  eager: true,
+  import: 'default'
+})
+const fileNames = reactive([...Object.values(images)] || [])
 
-const profileImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAXTcxYxvCc31IBVaO0CGUgDj9deLzG2_gdjFNDi-Qe7FdN7DNvVleviAFuDxzBtysCIh1fQSXH5VqpJ7nih-p_Egaz-yFFzIpQ0FF8m21b_4AIRvNeyZn2c8HzxNhlCov0fREe3f7EHsnQF-6ehPMgeZGoEFh770kEg5-DZ8f4kR3HQM9lMg_QQjYUuEMMS53yJFB0ygUeruJv0R5k4l54CmKYsUdMopNhgfgKts0_ctC4JYGgbGdy_JpO0M5W7Wj1G3Cb3O0eb0wR";
+const appTitle = ref(import.meta.env.VITE_APP_TITLE || 'Default Title');
+
+const profileImage = `${fileNames[13]}`;
+
+const currentYear = new Date().getFullYear();
 
 const hero = {
-  badge: "Established 2021",
+  badge: "Established 2025",
   title: "Our Beautiful Journey Together",
   description:
     "Every picture tells a story of the love we share and the adventures we have taken together.",
-  image:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuCH1Rfqn1_FxDQ_s68sGI87BA1aTUTUxmYv1Z1z48z5uCiVpXUrXKnSOaMZeFhBQ_6z4l73Q-J7QDxmhDtP48o48EqZM1WRoXtwZclQQJDkiWvL_2SsSy_FFzSSECUivUU3u_9zjQ1J6C_bknhYWTCg4Ey3vMCYG0BnFQup_NUpzPQHuVPM3uEgkH1BpSxtnu_ui99tDBpJ7vs2VYaLMr0p5ksGsOoumKPk-7FGC3gEah1X6EV_Ye3KB6SvDcf_a0ObTjbF5lzk4rhC",
+  image: `${fileNames[14]}`,
 };
 
 const memories = [
   {
-    month: "September 2021",
+    month: "September 6 2025",
     title: "Our First Date",
     quote:
-      "The day it all began at that small corner coffee shop in the rain.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD65Nuk54_hiurzRrCyPKJO-izAsQEbv_7RQCNLnWaewRBq7K9CoWAa9CVyORVAJXBihaKhz97kz8QNVJBa6Pa1PbIifoSJf4O25lv_He0Y_5Vv384HAGN4QwPAs8VMWPn7GqUxHU6rtNt9eO4stVmwJlJXRy37EzNFjweHgssQaUgEq_Cc67HbX0rbp7N6sISA9rp4ezyr15vLK4aT9Idpu3Ktqs7huDrnb9KtgWZWWTKl1OHai2X13s5j6UiUl6cUisM8u2tGg524",
+      "The day it all began at that first event together",
+    image:`${fileNames[0]}`,
   },
   {
-    month: "October 2021",
-    title: "Sunset at the Beach",
+    month: "October 11 2025",
+    title: "Vintage Date",
     quote: "Chasing the golden hour and finding forever in your eyes.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAGJhV1s77OOUkVeanzpnUiC8uNKs_9fItgtFueChC62DM-yeDwtohnfcU1HKRex8tERb_djEwY4oZb-EwNd9mkkNJYfHJ_mt4cH9hOvhpIOYTKNHJfP8mHVOBthBFjstk5Z_kkGP3WF2pAka3No6TZo0vbRtMxgxc269c1ExOZuxqyGeEKDqV8QUDpuIEL_SDLwEJJiuDh6G1vTX-_L__hwgTvokHXJuts7OySRK2PbwvWan8dkLPsmp9wN3qeM-rC6lvZZdaPs4Nu",
+      `${fileNames[4]}`,
   },
   {
-    month: "November 2021",
-    title: "Weekend Getaway",
-    quote: "Lost in the mountains, but perfectly found with you.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDORrNiu9ZBBODrULqkIgTURwc7nN9esl6dFpJ-F4jG8roboqO7EWQZr0clQqFfc0PwEnfCS-1LUOMIIrm1ZctvgPDu5o2dJySZ9n3DRj88F15_7VF5yGjYUOSYzvhi90nTJpSr8Kvo4uXEHaBTMEvNmGItPfxSDkJQcDQ0s_-zk0BPx4tKJew22yOnBDW_y6YEAaEEwhk6tE9TywttRoPvF9fLw0bRFEQDFr4Cf7sdSI-RzGFThXWm-ITBsIDLRbHmpU-vcdvDOvI9",
+    month: "November 16 2025",
+    title: "PGS Cosplay",
+    quote: "The first time we dressed up together - a day of laughter, creativity, and shared passions.",
+    image:`${fileNames[7]}`,
   },
   {
-    month: "December 2021",
-    title: "Anniversary Dinner",
-    quote: "A year of laughter, growth, and unconditional love.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD1xfAPdnbQ9LiIkP6t1pLw6j1RFsS3hwEuu0NwxUOaL34zAS-4B3odIj7sWslNqrsuUlvah9oRuYLcsLYGo4MQiVTfV9uxPGMP3vefS0o4KFbZqglpA2-xEjnUnWBn_nITgQ9Lf7EXw3CjInmQ9gCYhQwuHlzptEV5pTduTJP2wLCfA85Hko_4F_An47XqUYcToILFvR6CkJfskcjZWVKqRkScylb5xxJzk_kWkL8Z8Ip4naoFn5tJwiueOPPqUX7xGiDZ9T5MPiQN",
+    month: "November 28 2025",
+    title: "Movie Date",
+    quote: "The night we got cozy and watched our first movie together - a perfect blend of popcorn and cinematic magic.",
+    image:`${fileNames[8]}`,
+  },
+  {
+    month: "December 31 2025",
+    title: "First New Year's Eve",
+    quote: "Ringing in the new year with you by my side was the best way to start our journey together.",
+    image: `${fileNames[12]}`,
+  },
+  {
+    month: "December 31 2025",
+    title: "First New Year's Eve",
+    quote: "Ringing in the new year with you by my side was the best way to start our journey together.",
+    image: `${fileNames[13]}`,
+  },
+  {
+    month: "January 2 2026",
+    title: "First New Year's Date",
+    quote: "Starting the year with you was the best decision I ever made.",
+    image: `${fileNames[15]}`,
+  },
+  {
+    month: "January 17 2026",
+    title: "ArcDate",
+    quote: "ArDate: where we played games, won prizes, and made memories that will last a lifetime.",
+    image: `${fileNames[16]}`,
+  },
+  {
+    month: "February 1 2026",
+    title: "Ice Skating Date",
+    quote: "The night we glided together on the ice, creating memories that will last a lifetime.",
+    image: `${fileNames[17]}`,
+  }, {
+    month: "February 1 2026",
+    title: "Ice Skating Date",
+    quote: "The night we glided together on the ice, creating memories that will last a lifetime.",
+    image: `${fileNames[18]}`,
+  },
+  {
+    month: "February 13 2026",
+    title: "First Bouquet",
+    quote: "The night we received our first bouquet together - a moment of joy and celebration.",
+    image: `${fileNames[16]}`,
   },
 ];
 
 const trips = [
   {
-    title: "City of Love",
-    location: "Paris, France - 2022",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDRyPSikTGJ8norednfqjjRTK_DpfPZDvbBgNgqf2LCkGfTyyWndgF9mA6xwIMg2ysEJ9cGH2C2Y1JYdb2xMeFuGekRH6ervpnnCdXVPlb7EHiNMESncoYc1M9yCwOjRz98zZeMdyTN6ZeWf8CUnRNlVOWciUV-fmUNRYk1pkyIgzDqUX-_IcmJdegSvUCcu3zExuA6BoRC977AzXmG3F37Elg6VjBwGEIbA230OH16YXs1zmkOzla7ZLxaFWbcQjaslQvmx4gInnAI",
+    title: "Super Manila Comicon",
+    location: "One Ayala - Sept 2025",
+    image: `${fileNames[1]}`,
   },
   {
-    title: "Nature's Sanctuary",
-    location: "Redwood Forest - 2022",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBKG5ckzupVK3dJp8N7EwRryc1AgOeEAHxOEFAFH18s0d0Qjpvae-sgJDx6O8om2h0O3E0Ahduaic8HOXFXk517vYEO5t4PfLsddD6pjP0eXsEYbwje8MGrlGlRZu8OCNqUvVMPpH8_bvbOAYOGFsJe4hMVqNwOI4QwN0w_wDl3QrPGmxxuBM8YleohrMz8f7B-1cloWT8yv-i2i9_Gxoh8nJPCDQBzXL9Ck9BK07fx4gtteL6RgnAMs6NRS80bpnuL3UNyOCjqkV6N",
+    title: "Makati Night Stroll",
+    location: "Makati - Sept 2025",
+    image: `${fileNames[2]}`,
   },
   {
-    title: "The Bright Lights",
-    location: "New York City - 2023",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB2fEK3393VXMbT8jS0p_ZUu7FsFI-IXpc4-G1BS95MiJgUSD5EIgIdYbJWH8FgcpR9NArIuVnG3H5VlYmelOmtqFcD44CJBk8l8fGM3ycjGsQ3vv9R4YTrqnM4AYceabnR1xu65g8A_Ts0x9__rRZ8YOWYDYvZcgbx-QbXAtyruXu4xI5q4xgu4c55rAaBk3fr6bNrSgP6kuzoWhqi9y_FyCikw5mMk9uJml1YgXlwhPM6dwFQdm7kQAmgjVcuB86aprscrGIEM0_Q",
+    title: "Makati Night Stroll",
+    location: "Makati - Sept 2025",
+    image: `${fileNames[3]}`,
   },
   {
-    title: "Island Paradise",
-    location: "Bali, Indonesia - 2023",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
+    title: "Vintage Event",
+    location: "YL Building - Oct 2025",
+    image: `${fileNames[5]}`,
+  },
+  {
+    title: "Holi Date",
+    location: "San Lorenzo's Mall - Oct 2025",
+    image: `${fileNames[6]}`,
+  },
+  {
+    title: "Japanese Foods",
+    location: "Marugame - Nov 2025",
+    image: `${fileNames[9]}`,
+  },
+  {
+    title: "SunDate",
+    location: "Glorietta -Nov 2025",
+    image: `${fileNames[10]}`,
+  },
+  {
+    title: "SunDate",
+    location: "Ayala Ave - Nov 2025",
+    image: `${fileNames[11]}`,
+  },
+  {
+    title: "Weekend Stroll",
+    location: "Ayala Circuit - Jan 2026",
+    image: `${fileNames[16]}`,
   },
 ];
 </script>
@@ -81,24 +147,12 @@ const trips = [
           <div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary animate-soft-float">
             <span class="material-symbols-outlined text-2xl">favorite</span>
           </div>
-          <h1 class="text-xl font-bold tracking-tight">Alex &amp; Sam</h1>
+          <h1 class="text-xl font-bold tracking-tight">
+            {{ appTitle }}
+          </h1>
         </div>
 
-        <nav class="hidden items-center gap-8 md:flex">
-          <a
-            v-for="link in navLinks"
-            :key="link"
-            href="#"
-            class="text-sm font-medium transition-colors hover:text-primary"
-          >
-            {{ link }}
-          </a>
-        </nav>
-
         <div class="flex items-center gap-4">
-          <button class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-all hover:bg-primary/20">
-            <span class="material-symbols-outlined">share</span>
-          </button>
           <div
             class="size-10 rounded-full bg-cover bg-center ring-2 ring-primary/20"
             :style="{ backgroundImage: `url(${profileImage})` }"
@@ -194,9 +248,6 @@ const trips = [
           <p class="mx-auto mb-10 max-w-xl text-lg text-slate-600 dark:text-slate-400">
             This is only the beginning of our story. We cannot wait to fill these pages with even more beautiful memories.
           </p>
-          <button class="rounded-full bg-primary px-8 py-3 font-bold text-white shadow-lg transition-all hover:bg-primary/90 hover:shadow-primary/20">
-            Add a New Memory
-          </button>
         </section>
       </main>
 
@@ -204,9 +255,9 @@ const trips = [
         <div class="flex flex-col items-center justify-between gap-8 md:flex-row md:px-14">
           <div class="flex items-center gap-2">
             <span class="material-symbols-outlined text-primary">favorite</span>
-            <span class="text-lg font-bold">Alex &amp; Sam</span>
+            <span class="text-lg font-bold">{{ appTitle}}</span>
           </div>
-          <p class="text-sm text-slate-500 dark:text-slate-400">Made with love (c) 2024. Forever &amp; Always.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Made with love &copy; {{ currentYear }}. Forever &amp; Always.</p>
           <div class="flex gap-6">
             <a class="text-slate-400 transition-colors hover:text-primary" href="#"><span class="material-symbols-outlined">camera</span></a>
             <a class="text-slate-400 transition-colors hover:text-primary" href="#"><span class="material-symbols-outlined">mail</span></a>
