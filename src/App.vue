@@ -1,14 +1,20 @@
 <script setup>
-import { ref,reactive } from 'vue';
+import { ref } from 'vue';
+
 const images = import.meta.glob('@/assets/images/*.webp', {
   eager: true,
   import: 'default'
 })
-const fileNames = reactive([...Object.values(images)] || [])
+
+const fileNames = Object.entries(images)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, url]) => url)
+
+const getImage = (i) => fileNames[i] || '';
 
 const appTitle = ref(import.meta.env.VITE_APP_TITLE || 'Our Journey');
 
-const profileImage = `${fileNames[13]}`;
+const profileImage = fileNames[13];
 
 const currentYear = new Date().getFullYear();
 
@@ -17,7 +23,7 @@ const hero = {
   title: "Our Beautiful Journey Together",
   description:
     "Every picture tells a story of the love we share and the adventures we have taken together.",
-  image: `${fileNames[14]}`,
+  image: fileNames[14],
 };
 
 const memories = [
@@ -26,67 +32,66 @@ const memories = [
     title: "Our First Date",
     quote:
       "The day it all began at that first event together",
-    image:`${fileNames[0]}`,
+    image: fileNames[0],
   },
   {
     month: "October 11 2025",
     title: "Vintage Date",
     quote: "Chasing the golden hour and finding forever in your eyes.",
-    image:
-      `${fileNames[4]}`,
+    image: fileNames[4],
   },
   {
     month: "November 16 2025",
     title: "PGS Cosplay",
     quote: "The first time we dressed up together - a day of laughter, creativity, and shared passions.",
-    image:`${fileNames[7]}`,
+    image: fileNames[7],
   },
   {
     month: "November 28 2025",
     title: "Movie Date",
     quote: "The night we got cozy and watched our first movie together - a perfect blend of popcorn and cinematic magic.",
-    image:`${fileNames[8]}`,
+    image: fileNames[8],
   },
   {
     month: "December 31 2025",
     title: "First New Year's Eve",
     quote: "Ringing in the new year with you by my side was the best way to start our journey together.",
-    image: `${fileNames[12]}`,
+    image: fileNames[12],
   },
   {
     month: "December 31 2025",
     title: "First New Year's Eve",
     quote: "Ringing in the new year with you by my side was the best way to start our journey together.",
-    image: `${fileNames[13]}`,
+    image: fileNames[13],
   },
   {
     month: "January 2 2026",
     title: "First New Year's Date",
     quote: "Starting the year with you was the best decision I ever made.",
-    image: `${fileNames[15]}`,
+    image: fileNames[15],
   },
   {
     month: "January 17 2026",
     title: "ArcDate",
     quote: "ArDate: where we played games, won prizes, and made memories that will last a lifetime.",
-    image: `${fileNames[16]}`,
+    image: fileNames[16],
   },
   {
     month: "February 1 2026",
     title: "Ice Skating Date",
     quote: "The night we glided together on the ice, creating memories that will last a lifetime.",
-    image: `${fileNames[17]}`,
+    image: fileNames[17],
   }, {
     month: "February 1 2026",
     title: "Ice Skating Date",
     quote: "The night we glided together on the ice, creating memories that will last a lifetime.",
-    image: `${fileNames[18]}`,
+    image: fileNames[18],
   },
   {
     month: "February 13 2026",
     title: "First Bouquet",
     quote: "The night we received our first bouquet together - a moment of joy and celebration.",
-    image: `${fileNames[16]}`,
+    image: fileNames[16],
   },
 ];
 
@@ -94,47 +99,47 @@ const trips = [
   {
     title: "Super Manila Comicon",
     location: "One Ayala - Sept 2025",
-    image: `${fileNames[1]}`,
+    image: fileNames[1],
   },
   {
     title: "Makati Night Stroll",
     location: "Makati - Sept 2025",
-    image: `${fileNames[2]}`,
+    image: fileNames[2],
   },
   {
     title: "Makati Night Stroll",
     location: "Makati - Sept 2025",
-    image: `${fileNames[3]}`,
+    image: fileNames[3],
   },
   {
     title: "Vintage Event",
     location: "YL Building - Oct 2025",
-    image: `${fileNames[5]}`,
+    image: fileNames[5],
   },
   {
     title: "Holi Date",
     location: "San Lorenzo's Mall - Oct 2025",
-    image: `${fileNames[6]}`,
+    image: fileNames[6],
   },
   {
     title: "Japanese Foods",
     location: "Marugame - Nov 2025",
-    image: `${fileNames[9]}`,
+    image: fileNames[9],
   },
   {
     title: "SunDate",
     location: "Glorietta -Nov 2025",
-    image: `${fileNames[10]}`,
+    image: fileNames[10],
   },
   {
     title: "SunDate",
     location: "Ayala Ave - Nov 2025",
-    image: `${fileNames[11]}`,
+    image: fileNames[11],
   },
   {
     title: "Weekend Stroll",
     location: "Ayala Circuit - Jan 2026",
-    image: `${fileNames[16]}`,
+    image: fileNames[16],
   }
 ];
 </script>
