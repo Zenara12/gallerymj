@@ -70,6 +70,30 @@ const trips = [
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
   },
+  {
+    title: "Island Paradise",
+    location: "Bali, Indonesia - 2023",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
+  },
+  {
+    title: "Island Paradise",
+    location: "Bali, Indonesia - 2023",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
+  },
+  {
+    title: "Island Paradise",
+    location: "Bali, Indonesia - 2023",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
+  },
+  {
+    title: "Island Paradise",
+    location: "Bali, Indonesia - 2023",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeBcDE6gv_8rP26hiqSgLr-EGl1Bc8OdJsmrL5pDuQfb25d2VF7GzXtikQ0xy4cJuSMT7ooQnsBQ57GkXFinVxeZqqPRftuEWXgqnvpdfX9hM57YeCwBC6OEFzaPz_KmqKMJhsbR9B1HMgFyhxwRundZo5KrUE2Xy4viJnA6pJTPeBWGdnOb2ImF_w4UNZYx2YlyVo4jVrxzVclHz0b0ekn6UwGsFCi5JdSpD-pGt8NtD-Sh99ni2O3EpH6qD4vfEkKCwoOZjB_Ylo",
+  },
 ];
 </script>
 
@@ -167,7 +191,7 @@ const trips = [
             <p class="mt-2 text-slate-600 dark:text-slate-400">The places we have been and the memories we have made.</p>
           </div>
 
-          <div class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-8 md:px-16">
+          <div class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto mx-4 pb-8 md:mx-16 horizontal-carousel">
             <article
               v-for="(trip, index) in trips"
               :key="trip.title"
@@ -217,3 +241,54 @@ const trips = [
     </div>
   </div>
 </template>
+
+<style>
+.horizontal-carousel {
+  scroll-behavior: smooth;
+  anchor-name: --horizontal-carousel;
+}
+.horizontal-carousel::scroll-button(right) {
+  content: '🢡';
+  position-area: right center;
+  translate: -1rem -100%;
+}
+.horizontal-carousel::scroll-button(left) {
+  content: '🢠';
+  position-area: left center;
+  translate: 1rem -100%;
+}
+.horizontal-carousel::scroll-button(right), .horizontal-carousel::scroll-button(left) {
+  border: none;
+  background: rgb(255, 166, 0);
+  color: white;
+  font-size: 1.5rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding-bottom: .15em;
+  cursor: pointer;
+  position: fixed;
+  z-index: 5;
+  position-anchor: --horizontal-carousel;
+}
+.horizontal-carousel::scroll-button(right):disabled, .horizontal-carousel::scroll-button(left):disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+@media (max-width: 768px) {
+  .horizontal-carousel::scroll-button(right), .horizontal-carousel::scroll-button(left) {
+    font-size: 1.3rem;
+    padding-bottom: .25em;
+    height: 30px;
+    width: 30px;
+  }
+    .horizontal-carousel::scroll-button(right) {
+      translate: -0.5rem -150%;
+    }
+  
+    .horizontal-carousel::scroll-button(left) {
+      translate: 0.5rem -150%;
+    }
+}
+</style>
