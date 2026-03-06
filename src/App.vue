@@ -6,7 +6,7 @@ const images = import.meta.glob('@/assets/images/*.webp', {
 })
 const fileNames = reactive([...Object.values(images)] || [])
 
-const appTitle = ref(import.meta.env.VITE_APP_TITLE || 'Default Title');
+const appTitle = ref(import.meta.env.VITE_APP_TITLE || 'Our Journey');
 
 const profileImage = `${fileNames[13]}`;
 
