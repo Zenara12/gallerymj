@@ -10,8 +10,6 @@ const fileNames = Object.entries(images)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, url]) => url)
 
-const getImage = (i) => fileNames[i] || '';
-
 const appTitle = ref(import.meta.env.VITE_APP_TITLE || 'Our Journey');
 
 const profileImage = fileNames[13];
@@ -280,12 +278,12 @@ const trips = [
   anchor-name: --horizontal-carousel;
 }
 .horizontal-carousel::scroll-button(right) {
-  content: '🢡';
+  content: '⇨';
   position-area: right center;
   translate: -1rem -100%;
 }
 .horizontal-carousel::scroll-button(left) {
-  content: '🢠';
+  content: '⇦';
   position-area: left center;
   translate: 1rem -100%;
 }
