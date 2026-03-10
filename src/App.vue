@@ -295,7 +295,7 @@ const trips = [
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  padding-bottom: .15em;
+  padding-block: .15em;
   cursor: pointer;
   position: fixed;
   z-index: 5;
