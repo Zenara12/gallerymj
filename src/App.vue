@@ -80,18 +80,18 @@ const memories = [
     month: "February 1 2026",
     title: "Ice Skating Date",
     quote: "The night we glided together on the ice, creating memories that will last a lifetime.",
-    image: fileNames[17],
+    image: fileNames[18],
   }, {
     month: "February 1 2026",
     title: "Ice Skating Date",
     quote: "The night we glided together on the ice, creating memories that will last a lifetime.",
-    image: fileNames[18],
+    image: fileNames[19],
   },
   {
     month: "February 13 2026",
     title: "First Bouquet",
     quote: "The night we received our first bouquet together - a moment of joy and celebration.",
-    image: fileNames[16],
+    image: fileNames[17],
   },
 ];
 
@@ -128,7 +128,7 @@ const trips = [
   },
   {
     title: "SunDate",
-    location: "Glorietta -Nov 2025",
+    location: "Glorietta - Nov 2025",
     image: fileNames[10],
   },
   {
