@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onBeforeUnmount, onMounted } from 'vue';
 
 const images = import.meta.glob('@/assets/images/*.webp', {
   eager: true,
@@ -15,6 +15,56 @@ const appTitle = ref(import.meta.env.VITE_APP_TITLE || 'Our Journey');
 const profileImage = fileNames[13];
 
 const currentYear = new Date().getFullYear();
+
+const THEME_STORAGE_KEY = 'gallerymy-theme';
+const isDark = ref(false);
+let mediaQuery;
+let handleMediaChange;
+
+const applyTheme = (value) => {
+  document.documentElement.classList.toggle('dark', value);
+};
+
+const setTheme = (value, { persist } = { persist: false }) => {
+  isDark.value = value;
+  applyTheme(value);
+  if (persist) {
+    localStorage.setItem(THEME_STORAGE_KEY, value ? 'dark' : 'light');
+  }
+};
+
+const toggleTheme = () => {
+  setTheme(!isDark.value, { persist: true });
+};
+
+onMounted(() => {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === 'dark' || stored === 'light') {
+    setTheme(stored === 'dark', { persist: false });
+    return;
+  }
+
+  const prefersDark =
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(prefersDark, { persist: false });
+
+  if (window.matchMedia) {
+    mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    handleMediaChange = (event) => {
+      if (localStorage.getItem(THEME_STORAGE_KEY)) {
+        return;
+      }
+      setTheme(event.matches, { persist: false });
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (mediaQuery && handleMediaChange) {
+    mediaQuery.removeEventListener('change', handleMediaChange);
+  }
+});
 
 const hero = {
   badge: "Established 2025",
@@ -156,6 +206,17 @@ const trips = [
         </div>
 
         <div class="flex items-center gap-4">
+          <button
+            type="button"
+            class="inline-flex size-10 items-center justify-center rounded-full border border-primary/20 bg-white/70 text-slate-700 transition hover:bg-white hover:text-slate-900 dark:border-primary/30 dark:bg-slate-800/70 dark:text-slate-200 dark:hover:bg-slate-800"
+            :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+            :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+            @click="toggleTheme"
+          >
+            <span class="material-symbols-outlined text-2xl">
+              {{ isDark ? 'light_mode' : 'dark_mode' }}
+            </span>
+          </button>
           <div
             class="size-10 rounded-full bg-cover bg-center ring-2 ring-primary/20"
             :style="{ backgroundImage: `url(${profileImage})` }"
